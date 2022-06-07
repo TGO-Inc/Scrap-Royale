@@ -1,0 +1,55 @@
+{
+	"assetSetList": []
+}
+/*
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Forest.json",
+			"categories": ["Environment/Survival/Forest"]
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Building.json",
+			"categories": ["NeedsSorting", "Environment/Survival/Warehouse"]
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Manmade.json",
+			"categories": ["NeedsSorting", "Environment/Survival/Forest"]
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Hideout.json",
+			"categories": ["Environment/Survival/Hideout"]
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Nature/Foliage.json",
+			"categories": ["Type/Foliage", "Environment/Survival/Meadow"]
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Burntforest.json",
+			"categories":  ["Type/Foliage","Environment/Survival/Burntforerst"]
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Road.json",
+			"categories": ["Environment/Survival/Roads"]
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Ruin.json",
+			"categories": ["Environment/Survival/Ruins"]
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/SurvivalObjects.json",
+			"categories": ["Type/Special/SurvivalObjects"]
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Camping.json",
+			"categories": ["Environment/Survival/Camping"]
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Mecanicstation.json",
+			"categories": ["Environment/Survival/Mecanicstation"]
+		},
+		{
+			"assetSet": "$SURVIVAL_DATA/Terrain/Database/AssetSets/Spaceship.json",
+		    "categories": ["Type/Special/Spaceship"]
+		}
+	]
+}
+*/

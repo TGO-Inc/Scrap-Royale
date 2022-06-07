@@ -1,0 +1,71 @@
+		{
+			"uuid": "5935a0b9-9cf7-41f5-b942-a1d0fb246b8f",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$SURVIVAL_DATA/storm/Textures/color_dif.tga",
+									"$SURVIVAL_DATA/storm/Textures/color_asg.tga",
+									""
+								],
+								"material": "PoseAnimDifAsg"
+							},
+							{
+								"textureList": [
+									"$SURVIVAL_DATA/storm/Textures/color_dif.tga",
+									"$SURVIVAL_DATA/storm/Textures/color_asg.tga",
+									""
+								],
+								"material": "PoseAnimDifAsg"
+							}
+						],
+						"mesh": "$SURVIVAL_DATA/storm/storm.fbx",
+						"pose0": "$SURVIVAL_DATA/storm/storm_glow.fbx"
+					}
+				]
+			},
+			"color": "ff00ea",
+			"density": 125.0,
+			"physicsMaterial": "Plastic",
+			"hull": {
+				"x": 1,
+				"y": 1,
+				"z": 1,
+				"pointList": [
+					{
+						"x": 1.000000,
+						"y": -1.000000,
+						"z": -1.000000
+					},
+					{
+						"x": 1.000000,
+						"y": 1.000000,
+						"z": -1.000000
+					},
+					{
+						"x": -1.000000,
+						"y": -1.000000,
+						"z": -1.000000
+					},
+					{
+						"x": -1.000000,
+						"y": 1.000000,
+						"z": -1.000000
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"sticky": "-Z",
+			"spotlight": {
+				"defaultLuminance": 100,
+				"effect": "HeadLight",
+				"color": "ff00ea",
+				"direction": {
+					"x": 0,
+					"y": 0,
+					"z": -1
+				}
+			}
+		},
