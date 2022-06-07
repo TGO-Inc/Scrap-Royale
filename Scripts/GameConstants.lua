@@ -23,11 +23,10 @@ function pickRandomItem(container_uuid)
         end
     end
     weightedArray = ShuffleList(weightedArray)
-    num = math.random(1, #weightedArray)
-    randomItem = weightedArray[num]
-    return randomItem
+    return weightedArray[Random(1, #weightedArray)]
 end
 
+-- Better more random, random
 function Random(lowwer, upper)
     samples = {}
     for i = 0, 100 do
@@ -39,19 +38,14 @@ end
 
 function ShuffleList(x)
     shuffled = {}
-    
     itemL = {}
-    for i = 1, #x+1 do
-        itemL[i] = i
-    end
-    
+    for i = 1, #x+1 do itemL[i] = i end
     for i, v in ipairs(x) do
         local pos = Random(1, #x)
         while itemL[pos] == nil do pos = Random(1, #x) end
         table.insert(shuffled, i, x[pos])
         itemL[pos] = nil
     end
-
     return shuffled
 end
 
