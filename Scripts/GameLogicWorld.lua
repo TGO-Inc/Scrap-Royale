@@ -14,12 +14,21 @@ function CreativeCustomWorld.sve_LoadStorages(self)
     for p,o in pairs(storageArray) do
         container = o:getContainer(0)
         size = container:getSize()
-        for i = size-math.random(1, math.min(1, size)), size do
+
+        for i = 1, size do
+            if container:isEmpty() then break end
+            item = container:getItem(i)
+            sm.container.beginTransaction()
+            sm.container.spend(container, item.uuid, item.quantity, true)
+            sm.container.endTransaction()
+        end
+
+        for i = size-Random(1, math.min(5, size)), size do
             sm.container.beginTransaction()
             itemTable = pickRandomItem(o:getShape():getShapeUuid())
             uuid = itemTable._uuid
             if uuid == nil then uuid = itemTable[1] end
-            container:setItem(size-i, uuid, math.random(1, itemTable.maxstack))
+            container:setItem(size-i, uuid, Random(1, itemTable.maxstack))
             sm.container.endTransaction()
         end
     end
