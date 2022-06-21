@@ -110,7 +110,7 @@ end
 
 ----------------------------------------------------------------------------------------------------
 
-local function initializeCellData( xMin, xMax, yMin, yMax, seed )
+local function initializeCellData( )
 	-- Version history:
 	-- 2:	Changes integer 'tileId' to 'uid' from tile uuid
 	--		Renamed 'tileOffsetX' -> 'xOffset'
@@ -119,8 +119,8 @@ local function initializeCellData( xMin, xMax, yMin, yMax, seed )
 	--		TODO: Implement upgrade
 
 	g_cellData = {
-		bounds = { xMin = xMin, xMax = xMax, yMin = yMin, yMax = yMax },
-		seed = seed,
+		bounds = { xMin = -128, xMax = 127, yMin = -128, yMax = 127 },
+		seed = 0,
 		-- Per Cell
 		uid = {},
 		xOffset = {},
@@ -132,13 +132,13 @@ local function initializeCellData( xMin, xMax, yMin, yMax, seed )
 	}
 
 	-- Cells
-	for cellY = yMin, yMax do
+	for cellY = -128, 127 do
 		g_cellData.uid[cellY] = {}
 		g_cellData.xOffset[cellY] = {}
 		g_cellData.yOffset[cellY] = {}
 		g_cellData.rotation[cellY] = {}
 
-		for cellX = xMin, xMax do
+		for cellX = -128, 127 do
 			g_cellData.uid[cellY][cellX] = sm.uuid.getNil()
 			g_cellData.xOffset[cellY][cellX] = 0
 			g_cellData.yOffset[cellY][cellX] = 0
@@ -146,9 +146,9 @@ local function initializeCellData( xMin, xMax, yMin, yMax, seed )
 		end
 	end
 
-	for cornerY = yMin, yMax+1 do
+	for cornerY = -128, 127+1 do
 		g_cellData.corners[cornerY] = {}
-		for cornerX = xMin, xMax+1 do
+		for cornerX = -128, 127+1 do
 			g_cellData.corners[cornerY][cornerX] = 0
 		end
 	end
@@ -164,47 +164,17 @@ function Create( xMin, xMax, yMin, yMax, seed, data )
 		g_isEditor = false
 		print( "Creating custom terrain: " .. data.worldFile )
 		jWorld = sm.json.open( data.worldFile )
-		
-		print( "Bounds X: ["..xMin..", "..xMax.."], Y: ["..yMin..", "..yMax.."]" )
-		print( "Seed: "..seed )
 
-		-- v0.5.0: graphicsCellPadding is no longer included in min/max
-		xMin =  xMin - GRAPHICS_CELL_PADDING
-		xMax =  xMax + GRAPHICS_CELL_PADDING
-		yMin =  yMin - GRAPHICS_CELL_PADDING
-		yMax =  yMax + GRAPHICS_CELL_PADDING
-		
-		initializeCellData( xMin, xMax, yMin, yMax, seed )
+		print( "Bounds X: ["..xMin..", "..xMax.."], Y: ["..yMin..", "..yMax.."]" )
+
+		initializeCellData( )
 		LoadTerrain( jWorld )
-		updateDesertFade( 
-			g_cellData.bounds.xMin + (GRAPHICS_CELL_PADDING-1), 
-			g_cellData.bounds.xMax - (GRAPHICS_CELL_PADDING-1) )
-		
-		for i = FENCE_MIN_CELL + 1, FENCE_MAX_CELL - 1 do
-			setFence( i, FENCE_MIN_CELL, "S", seed, temp )
-			setFence( i, FENCE_MAX_CELL, "N", seed, temp )
-			setFence( FENCE_MIN_CELL, i, "W", seed, temp )
-			setFence( FENCE_MAX_CELL, i, "E", seed, temp )	
-		end
-		setFence( FENCE_MIN_CELL, FENCE_MIN_CELL, "SW", seed, temp )
-		setFence( FENCE_MAX_CELL, FENCE_MIN_CELL, "SE", seed, temp )
-		setFence( FENCE_MIN_CELL, FENCE_MAX_CELL, "NW", seed, temp )
-		setFence( FENCE_MAX_CELL, FENCE_MAX_CELL, "NE", seed, temp )
 
 		for path, uid in pairs( temp.pathToUid ) do
 			f_uidToPath[tostring(uid)] = path
 		end
 		
 		sm.terrainData.save( { f_uidToPath, g_cellData } )
-	else -- we are coming from the editor and data will be loaded later
-		g_isEditor = true
-		print("Create custom terrain for Editor")
-		xMin =  xMin - GRAPHICS_CELL_PADDING
-		xMax =  xMax + GRAPHICS_CELL_PADDING
-		yMin =  yMin - GRAPHICS_CELL_PADDING
-		yMax =  yMax + GRAPHICS_CELL_PADDING
-		initializeCellData( xMin, xMax, yMin, yMax, seed )
-		updateDesertFade( g_cellData.bounds.xMin +5 , g_cellData.bounds.xMax - 5  )
 	end
 end
 
@@ -217,9 +187,9 @@ function Load()
 		f_uidToPath = terrainData[1]
 		g_cellData = terrainData[2]
 		
-		updateDesertFade(
+		--[[updateDesertFade(
 			g_cellData.bounds.xMin + (GRAPHICS_CELL_PADDING-1) , 
-			g_cellData.bounds.xMax - (GRAPHICS_CELL_PADDING-1) )
+			g_cellData.bounds.xMax - (GRAPHICS_CELL_PADDING-1) )]]
 		return true
 	end
 
@@ -254,8 +224,6 @@ function LoadTerrain( terrainData )
 	local terrainTileList = { pathToUid = {}, nextLegacyId = 1 }
 
 	if terrainData.cornerData then
-		terrainData.corners = {}
-
 		for i = 1, #terrainData.cornerData do
 			local cd = terrainData.cornerData[i]
 			local x = cd["x"]
