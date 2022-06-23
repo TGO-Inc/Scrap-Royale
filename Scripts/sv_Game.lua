@@ -50,7 +50,7 @@ end
 function Game.sv_recreatePlayerCharacter( self, world, x, y, player, params )
 	local yaw = math.atan2( params.dir.y, params.dir.x ) - math.pi/2
 	local pitch = math.asin( params.dir.z )
-	local newCharacter = sm.character.createCharacter( player, self.sv.saved.world, params.pos, yaw, pitch )
+	local newCharacter = sm.character.createCharacter( player, self.sv.saved.world, sm.vec3.new(0,player.pos.y,0), yaw, pitch )
 	player:setCharacter( newCharacter )
 end
 

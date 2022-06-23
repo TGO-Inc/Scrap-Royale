@@ -37,7 +37,7 @@ function Game.cl_loadWorld(self, world)
 end
 
 function Game.cl_storm(self, world)
-	self.network:sendToServer( "MainGameLogic2" )
+	self.network:sendToServer( "MainGameLogic2")
 end
 
 

@@ -15,24 +15,29 @@ function Game.SetWorldHandle( self, handle )
     end
 end
 
+function Game.checkp(self, handle)
+    return ((self.SafeHandle == handle) and (self.SafeHandle ~= nil) and (sm.isServerMode())) or not HANDLE_INITIALIZED
+end
+
 function Game.InitData( self )
     self.sv.stormCounter = 0
     self.sv.stormSize = 0
     self.sv.stormCenter = { x = 0, y = 0 }
 end
 
-function Game.MainGameLogic( self )
-    -- Get all chests and stuff in world
-    -- Generate all loot (dont fill chests until players open chest)
-    sm.event.sendToWorld(self.sv.saved.world, "sve_LoadStorages", { self = self.WorldHandle })
+function Game.MainGameLogic( self, ref )
+    --if self:checkp(ref.self) then
+        -- Get all chests and stuff in world
+        -- Generate all loot (dont fill chests until players open chest)
+        self:InitData()
+        self.sv.stormSize = math.pow(self.sv.worldSize*4, 2) * 3
+        sm.event.sendToWorld(self.sv.saved.world, "sve_LoadStorages", { self = self.WorldHandle })
+    --end
 end
 
 function Game.MainGameLogic2 ( self )
-    -- Generate storm center and preceeding locations 
-    self:sv_NewStormPos({ self = self.SafeHandle })
-    self:sv_NewStormPos({ self = self.SafeHandle })
-    self:sv_NewStormPos({ self = self.SafeHandle })
-    self:sv_NewStormPos({ self = self.SafeHandle })
+    --if self:checkp(ref.self) then
+    -- Generate storm center and preceeding locations
     self:sv_NewStormPos({ self = self.SafeHandle })
     -- sm.event.sendToWorld(self.sv.saved.world, "sve_LoadWorldSize", { self = self.WorldHandle, callback="Game.SetWorldSize" })
     -- choose battle bus path
@@ -46,6 +51,7 @@ function Game.MainGameLogic2 ( self )
     -- storm move 3 min
     -- storm move 2 min
     -- storm move 1 min
+    -- end
 end
 
 function Game.sv_loadWorld( self, data )
@@ -64,7 +70,6 @@ function Game.sv_loadWorld( self, data )
 	fName = "$CONTENT_DATA/Terrain/worlds/"..worldName
 	jWorld = sm.json.open( fName )
 	self.sv.worldSize = math.pow(#jWorld.cellData/4, 0.5)
-    self.sv.stormSize = math.pow(self.sv.worldSize*4, 2) * 2
 
 	self.sv.saved.world = sm.world.createWorld( self.worldScriptFilename, self.worldScriptClass, { worldFile = fName }, 0 )
 	self:InitHandles()
@@ -83,15 +88,15 @@ function Game.sv_loadWorld( self, data )
 end
 
 function Game.sve_setStorageList( self, ref )
-    if (ref.self == self.SafeHandle) then 
-        print(ref)
+    if self:checkp(ref.self) then 
+        print(ref.data)
+        self:MainGameLogic2()
     end
     --[[
         sm.container.beginTransaction()
         container:setItem(slot, uuid, count)
         sm.container.endTransaction()
     ]]
-    self:MainGameLogic2()
 end
 
 local function a2b2c2f( a, b )
@@ -121,8 +126,8 @@ function Game.getPcentMax( self )
 end
 
 function Game.sv_NewStormPos( self, ref )
-    if (ref.self == self.SafeHandle) then
-        local DesmosDebugString = ""
+    if self:checkp(ref.self) then
+        print("Generating New Storm")
         local size = self.sv.stormSize / 2
         local coordSize = math.floor(size * 0.30)
         local x = math.random(-coordSize, coordSize)
@@ -137,9 +142,16 @@ function Game.sv_NewStormPos( self, ref )
         ))
         local radius = math.min(math.floor(radiusMax * 0.95), estimatedRadius)
         self.sv.stormSize = radius * 2
+        sm.event.sendToWorld(self.sv.saved.world, "sv_UpdateStormLoc", 
+        { 
+            self = self.WorldHandle,
+            start_pos = sm.vec3.new(self.sv.stormCenter.x, self.sv.stormCenter.y, 75),
+            end_pos = sm.vec3.new(coords.x + self.sv.stormCenter.x, coords.y + self.sv.stormCenter.y, 75),
+            start_radius = size,
+            end_radius = radius,
+            time = 6 * 3 * 40
+        })
         self.sv.stormCenter.x = coords.x + self.sv.stormCenter.x
         self.sv.stormCenter.y = coords.y + self.sv.stormCenter.y
-        DesmosDebugString = DesmosDebugString .. "\n" .. self.sv.stormSize / 2 .. "^2 = (x-" .. self.sv.stormCenter.x  .. ")^2 + (y-" .. self.sv.stormCenter.y .. ")^2"
     end
-    --print(DesmosDebugString)
 end

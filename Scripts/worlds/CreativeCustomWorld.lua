@@ -45,10 +45,12 @@ end
 function CreativeCustomWorld.server_onFixedUpdate( self )
 	CreativeBaseWorld.server_onFixedUpdate( self )
 	self.waterManager:sv_onFixedUpdate()
+	self:UpdateStormPos()
 end
 
 function CreativeCustomWorld.client_onFixedUpdate( self )
 	self.waterManager:cl_onFixedUpdate()
+	self:UpdateStormVisuals()
 end
 
 function CreativeCustomWorld.client_onUpdate( self )
