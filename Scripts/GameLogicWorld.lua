@@ -170,7 +170,6 @@ function CreativeCustomWorld.UpdateStormVisuals( self, ref )
             end
             if self.stormEffectData.end_radius < 1 and self.stormEffectData.end_radius > 0 then 
                 self.stormEffectData.end_radius = 0
-                self.stormEffectData.time = self.stormEffectData.time + 80
             end
             self.stormEffectData.rotation.quat = rotateQuat( self.stormEffectData.rotation, self.stormSpeed )
             self.stormEffect:setRotation(self.stormEffectData.rotation.quat)
