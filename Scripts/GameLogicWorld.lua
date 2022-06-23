@@ -84,7 +84,7 @@ function CreativeCustomWorld.sv_UpdateStormLoc( self, ref )
         self.stormEffectData.end_pos = ref.end_pos
         self.stormEffectData.startTime = ref.time
         self.stormEffectData.time = ref.time
-        self.stormEffectData.cycle = true
+        self.stormEffectData.damangecycle = true
         ref.self = nil
         self.network:sendToClients("cl_UpdateStormLoc", ref)
     end
@@ -134,10 +134,10 @@ local function rotateQuat( data, amt )
     return returnQuat
 end
 
-local intermissionTimer = 10 * 40
+local intermissionTimer = 2 * 40
 
 function CreativeCustomWorld.UpdateStormPos( self, ref )
-    if(self.stormEffect ~= nil) and self.stormEffectData.cycle  then
+    if(self.stormEffect ~= nil) and self.stormEffectData.damangecycle  then
         if self.stormEffectData.time > 1 then 
             self.stormEffectData.time = self.stormEffectData.time - 1
             local percent = math.abs(((self.stormEffectData.startTime - self.stormEffectData.time) / self.stormEffectData.startTime) - 1)
@@ -145,7 +145,7 @@ function CreativeCustomWorld.UpdateStormPos( self, ref )
             self.stormEffectData.radius = self.stormEffectData.end_radius + scale * 2
             if self.stormEffectData.radius < 0.5 then
                 self.stormEffectData.radius = 0
-                self.stormEffectData.cycle = false
+                self.stormEffectData.damangecycle = false
             end
             self.stormEffectData.position = self.stormEffectData.end_pos + ((self.stormEffectData.start_pos - self.stormEffectData.end_pos) * percent)
             if (self.stormEffectData.time == 1) then
@@ -154,7 +154,7 @@ function CreativeCustomWorld.UpdateStormPos( self, ref )
         elseif intermissionTimer > 0 then
             intermissionTimer = intermissionTimer - 1
         elseif intermissionTimer == 0 then
-            intermissionTimer = 10 * 40
+            intermissionTimer = 2 * 40
             sm.event.sendToGame( "sv_NewStormPos", { self = self.GameHandle } )
         end
     end

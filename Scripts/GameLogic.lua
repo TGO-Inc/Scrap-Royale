@@ -149,7 +149,7 @@ function Game.sv_NewStormPos( self, ref )
             end_pos = sm.vec3.new(coords.x + self.sv.stormCenter.x, coords.y + self.sv.stormCenter.y, 75),
             start_radius = size,
             end_radius = radius,
-            time = 6 * 3 * 40
+            time = 2 * 3 * 40
         })
         self.sv.stormCenter.x = coords.x + self.sv.stormCenter.x
         self.sv.stormCenter.y = coords.y + self.sv.stormCenter.y
