@@ -1,4 +1,3 @@
-
 function Game.InitHandles( self )
     if not sm.isServerMode() then return end
     if self.SafeHandle == nil and self.WorldHandle == nil then
@@ -40,10 +39,6 @@ function Game.MainGameLogic2 ( self )
     -- Generate storm center and preceeding locations
     self:sv_NewStormPos({ self = self.SafeHandle })
     -- sm.event.sendToWorld(self.sv.saved.world, "sve_LoadWorldSize", { self = self.WorldHandle, callback="Game.SetWorldSize" })
-    -- choose battle bus path
-    -- battle bus
-    -- randomize seat locations for players
-    -- start storm formation timer for 1 min and move bus over landscape (30 seconds)
 
     -- 10 min game
     -- form storm and start 5 min timer
@@ -52,6 +47,72 @@ function Game.MainGameLogic2 ( self )
     -- storm move 2 min
     -- storm move 1 min
     -- end
+end
+
+local function randomVec3(max,min)
+    local min = min or 0
+    return sm.vec3.new(math.random(min, max), math.random(min, max), math.random(min, max))
+end
+
+function Game.MainGameLogic3( self, world, caller )
+    print("MainGameLogic3")
+    -- choose battle bus path
+
+    local pathPadding = 0
+    local height = 300
+    local type = 3
+
+    local battleBusPath = "$CONTENT_DATA/blueprints/battlebus/BattleBus"..type..".json" -- 1 2 3 or 4
+
+    local worldWidth = self.sv.worldSize*100
+
+    local startPos = randomVec3(worldWidth,-worldWidth)
+    startPos.z = height
+    startPos.x = worldWidth
+
+    local finishPos = -startPos
+    finishPos.z = height
+
+    -- battle bus
+    local dir = sm.vec3.getRotation(sm.vec3.new(0,1,0),(startPos-finishPos):normalize())-- doesnt work pls fix
+    local battleBus = sm.creation.importFromFile( world, battleBusPath, startPos, dir, true )
+    print(battleBus)
+
+    world:loadCell( startPos.x/64-1, startPos.y/64+1, nil, "" )-- load all cells around ship
+    world:loadCell( startPos.x/64-1, startPos.y/64-1, nil, "" )
+    world:loadCell( startPos.x/64-1, startPos.y/64, nil, "" )
+    world:loadCell( startPos.x/64+1, startPos.y/64+1, nil, "" )
+    world:loadCell( startPos.x/64+1, startPos.y/64-1, nil, "" )
+    world:loadCell( startPos.x/64+1, startPos.y/64, nil, "" )
+    world:loadCell( startPos.x/64, startPos.y/64+1, nil, "" )
+    world:loadCell( startPos.x/64, startPos.y/64-1, nil, "" )
+    world:loadCell( startPos.x/64, startPos.y/64, nil, "" )
+
+    -- start storm formation timer for 1 min and move bus over landscape (30 seconds)
+end
+
+
+function Game.sv_teleportPlayers(self, ref, caller)
+    -- if not self:checkp(ref.self) then return end
+    print('sv_teleportPlayers')
+    local data = ref.data
+    print(data)
+    local seats={}
+    for i,shape in pairs(data.ship:getBody():getShapes()) do--loop over all shapes to get seats
+        local interactable = shape:getInteractable()
+        if interactable and interactable:hasSeat() then-- if the shape is a seat
+            table.insert(seats,interactable)
+        end
+    end
+
+    local allPlayers = sm.player.getAllPlayers()
+    
+    for i,player in pairs(allPlayers) do--loop over all players to set their seat
+        local seat = seats[math.random(1, #seats)]
+        seat:setSeatCharacter( player:getCharacter() )
+        seat=nil
+    end
+
 end
 
 function Game.sv_loadWorld( self, data )

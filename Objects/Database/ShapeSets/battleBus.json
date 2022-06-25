@@ -1,0 +1,21 @@
+{
+   "partList" : [
+      {
+         "box" : {
+            "x" : 1,
+            "y" : 1,
+            "z" : 1
+         },
+         "color" : "696969",
+         "name" : "engine",
+         "physicsMaterial" : "Default",
+         "renderable" : "$GAME_DATA/Objects/Renderable/Interactive/obj_interactive_logicgate.rend",
+         "rotationSet" : "Default",
+         "scripted" : {
+            "classname" : "battleBusEngine",
+            "filename" : "$CONTENT_DATA/Scripts/busEngine.lua"
+         },
+         "uuid" : "af18c896-c158-4397-9fc0-2588803a1b2c"
+      }
+   ]
+}
