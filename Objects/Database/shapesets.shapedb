@@ -1,7 +1,9 @@
 {
    "shapeSetList" : [
-      "$CONTENT_DATA/Objects/Database/ShapeSets/scrap.shapeset",
       "$CONTENT_DATA/Objects/Database/ShapeSets/craftbot.json",
-      "$CONTENT_DATA/Objects/Database/ShapeSets/survivalobject.json"
+      "$CONTENT_DATA/Objects/Database/ShapeSets/survivalobject.json",
+      "$CONTENT_DATA/Objects/Database/ShapeSets/storm.json",
+      "$CONTENT_DATA/Objects/Database/ShapeSets/parts.json",
+      "$CONTENT_DATA/Objects/Database/ShapeSets/battleBus.json"
    ]
 }

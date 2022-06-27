@@ -1,0 +1,58 @@
+{
+   "lodList" : [
+      {
+         "mesh" : "$CONTENT_DATA/Effects/Mesh/Border.fbx",
+         "minViewSize" : 0,
+         "subMeshList" : [
+            {
+               "custom" : {
+                  "color" : "FF0000",
+                  "shadow" : false
+               },
+               "material" : "LiquidAlphaUvAnim",
+               "textureList" : [
+                  "$CONTENT_DATA/Effects/Border_dif.tga",
+                  "$CONTENT_DATA/Effects/Border_asg.tga",
+                  "$CONTENT_DATA/Effects/FireNormalMap.png"
+               ]
+            },
+            {
+               "custom" : {
+                  "color" : "FF0000",
+                  "shadow" : false
+               },
+               "material" : "LiquidAlphaUvAnim",
+               "textureList" : [
+                  "$CONTENT_DATA/Effects/Border_dif.tga",
+                  "$CONTENT_DATA/Effects/Border_asg.tga",
+                  "$CONTENT_DATA/Effects/FireNormalMap.png"
+               ]
+            },
+            {
+               "custom" : {
+                  "color" : "FF0000",
+                  "shadow" : false
+               },
+               "material" : "LiquidAlphaUvAnim",
+               "textureList" : [
+                  "$CONTENT_DATA/Effects/Border_dif.tga",
+                  "$CONTENT_DATA/Effects/Border_asg.tga",
+                  "$CONTENT_DATA/Effects/FireNormalMap.png"
+               ]
+            },
+            {
+               "custom" : {
+                  "color" : "0000FF",
+                  "shadow" : false
+               },
+               "material" : "LiquidAlphaUvAnim",
+               "textureList" : [
+                  "$CONTENT_DATA/Effects/Border_dif.tga",
+                  "$CONTENT_DATA/Effects/Border_asg.tga",
+                  "$CONTENT_DATA/Effects/FireNormalMap.png"
+               ]
+            }
+         ]
+      }
+   ]
+}

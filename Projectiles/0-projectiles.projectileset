@@ -1,0 +1,430 @@
+{
+   "projectiles" : [
+      {
+         "ammo" : {
+            "cost" : 1,
+            "uuid" : "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82"
+         },
+         "attachedEffect" : "",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "TomatoProjectile - Hit",
+         "effectmaterial" : "Potato",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 3.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_tomato.rend",
+         "name" : "tomato",
+         "radius" : 0.250,
+         "spin" : 7.0,
+         "uuid" : "b72b01a5-59ad-4882-bbd3-3cbc9f357823"
+      },
+      {
+         "ammo" : {
+            "cost" : 1,
+            "uuid" : "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82"
+         },
+         "attachedEffect" : "",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "CarrotProjectile - Hit",
+         "effectmaterial" : "Potato",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 3.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_carrot.rend",
+         "name" : "carrot",
+         "radius" : 0.250,
+         "spin" : 7.0,
+         "uuid" : "69fc1a2b-77d2-40da-9a82-03fbe3c35a18"
+      },
+      {
+         "ammo" : {
+            "cost" : 1,
+            "uuid" : "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82"
+         },
+         "attachedEffect" : "",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "RedbeetProjectile - Hit",
+         "effectmaterial" : "Potato",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 3.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_redbeet.rend",
+         "name" : "redbeet",
+         "radius" : 0.250,
+         "spin" : 7.0,
+         "uuid" : "358700c1-7555-41dc-90d1-92374051f985"
+      },
+      {
+         "ammo" : {
+            "cost" : 1,
+            "uuid" : "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82"
+         },
+         "attachedEffect" : "",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "BroccoliProjectile - Hit",
+         "effectmaterial" : "Potato",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 3.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_broccoli.rend",
+         "name" : "broccoli",
+         "radius" : 0.250,
+         "spin" : 7.0,
+         "uuid" : "b6f296d0-bc03-4098-85b5-52546daad1d7"
+      },
+      {
+         "ammo" : {
+            "cost" : 1,
+            "uuid" : "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82"
+         },
+         "attachedEffect" : "",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "PineappleProjectile - Hit",
+         "effectmaterial" : "Potato",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 3.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_pineapple.rend",
+         "name" : "pineapple",
+         "radius" : 0.250,
+         "spin" : 7.0,
+         "uuid" : "65d509b9-09f8-4e32-8b1a-0a6aa11f8660"
+      },
+      {
+         "ammo" : {
+            "cost" : 1,
+            "uuid" : "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82"
+         },
+         "attachedEffect" : "",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "OrangeProjectile - Hit",
+         "effectmaterial" : "Potato",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 3.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_orange.rend",
+         "name" : "orange",
+         "radius" : 0.250,
+         "spin" : 7.0,
+         "uuid" : "9963fbc0-1314-4db4-8866-1237ace867c3"
+      },
+      {
+         "ammo" : {
+            "cost" : 1,
+            "uuid" : "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82"
+         },
+         "attachedEffect" : "",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "BlueberryProjectile - Hit",
+         "effectmaterial" : "Potato",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 3.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_blueberry.rend",
+         "name" : "blueberry",
+         "radius" : 0.250,
+         "spin" : 7.0,
+         "uuid" : "599b112d-2ff9-4f14-9051-0f58bebb2c94"
+      },
+      {
+         "ammo" : {
+            "cost" : 1,
+            "uuid" : "bfcfac34-db0f-42d6-bd0c-74a7a5c95e82"
+         },
+         "attachedEffect" : "",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "BananaProjectile - Hit",
+         "effectmaterial" : "Potato",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 3.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_banana.rend",
+         "name" : "banana",
+         "radius" : 0.250,
+         "spin" : 7.0,
+         "uuid" : "4e259125-d1c0-4678-ae41-2652cf224692"
+      },
+      {
+         "attachedEffect" : "TapeProjectile - Attached",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               },
+               {
+                  "chance" : 0.50,
+                  "qualityLevel" : 2
+               },
+               {
+                  "chance" : 0.20,
+                  "qualityLevel" : 3
+               },
+               {
+                  "chance" : 0.10,
+                  "qualityLevel" : 4
+               }
+            ]
+         },
+         "effect" : "TapeProjectile - Hit",
+         "effectmaterial" : "Tape",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 3.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_tape.rend",
+         "name" : "tape",
+         "radius" : 0.250,
+         "spin" : 7.0,
+         "uuid" : "1a981b70-dc08-4105-89b1-79819511a2fb"
+      },
+      {
+         "attachedEffect" : "TapeProjectile - Attached",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "TapeProjectile - Hit",
+         "effectmaterial" : "Tape",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 3.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_explosivetape.rend",
+         "name" : "explosivetape",
+         "radius" : 0.250,
+         "spin" : 7.0,
+         "uuid" : "31b92b9a-a9f8-4f6d-988b-04ad479978ec"
+      },
+      {
+         "attachedEffect" : "PesticideProjectile - Attached",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "PesticideProjectile - Hit",
+         "effectmaterial" : "Default",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 5.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_chemical.rend",
+         "name" : "pesticide",
+         "radius" : 1.0,
+         "spin" : 42.0,
+         "uuid" : "68029b35-2028-42a5-8509-286d78656561"
+      },
+      {
+         "amount" : 3,
+         "attachedEffect" : "Water - WaterProjectileTrail",
+         "audiomass" : 1.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "WaterProjectile - Hit",
+         "effectmaterial" : "Water",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 0.1500000059604645,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_water.rend",
+         "name" : "water",
+         "radius" : 0.250,
+         "spin" : 0.0,
+         "uuid" : "2c3fc640-1a2e-4328-a872-f6d3f92d0fea"
+      },
+      {
+         "attachedEffect" : "FertilizerProjectile - Attached",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "FertilizerProjectile - Hit",
+         "effectmaterial" : "Default",
+         "enableGravity" : true,
+         "enableImpactEffect" : false,
+         "friction" : 0.2000000029802322,
+         "mass" : 0.1500000059604645,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_fertilizer.rend",
+         "name" : "fertilizer",
+         "radius" : 0.250,
+         "spin" : 0.0,
+         "uuid" : "5610b246-774e-4c1c-9adc-f87b4d993c43"
+      },
+      {
+         "attachedEffect" : "",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "PotatoProjectile - Hit",
+         "effectmaterial" : "Default",
+         "enableGravity" : true,
+         "enableImpactEffect" : false,
+         "friction" : 0.2000000029802322,
+         "mass" : 0.0,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_seed.rend",
+         "name" : "seed",
+         "radius" : 0.250,
+         "spin" : 0.0,
+         "uuid" : "9512029a-3f1d-4aa2-92bf-cb876d5c8cb0"
+      },
+      {
+         "attachedEffect" : "ChemicalProjectile - Attached",
+         "audiomass" : 250.0,
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "ChemicalProjectile - Hit",
+         "effectmaterial" : "Default",
+         "enableGravity" : true,
+         "enableImpactEffect" : false,
+         "friction" : 0.2000000029802322,
+         "mass" : 0.1500000059604645,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_chemical.rend",
+         "name" : "chemical",
+         "radius" : 0.250,
+         "spin" : 0.0,
+         "uuid" : "46292783-af41-49a5-91ef-092f22dfae91"
+      },
+      {
+         "ammo" : {
+            "cost" : 1,
+            "uuid" : "3a3280e4-03b6-4a4d-9e02-e348478213c9"
+         },
+         "attachedEffect" : "GlowstickProjectile - Attached",
+         "audiomass" : 1.0,
+         "bounce" : {
+            "bounceEffect" : "GlowstickProjectile - Bounce",
+            "hitOnBounce" : false,
+            "maxAllowedBounces" : 1,
+            "maxDeathVelocity" : 30.0,
+            "minDeathVelocity" : 4.50,
+            "restitution" : 0.50
+         },
+         "color" : "00ff00",
+         "destruction" : {
+            "destructionLevels" : [
+               {
+                  "chance" : 1.0,
+                  "qualityLevel" : 1
+               }
+            ]
+         },
+         "effect" : "",
+         "effectmaterial" : "Plastic",
+         "enableGravity" : true,
+         "enableImpactEffect" : true,
+         "friction" : 0.2000000029802322,
+         "mass" : 0.2000000029802322,
+         "mesh" : "$GAME_DATA/Projectiles/Renderables/projectile_glowstick.rend",
+         "name" : "glowstick",
+         "radius" : 0.3499999940395355,
+         "spin" : 4.250,
+         "uuid" : "bdd04d53-2103-4c17-a3cb-ddbbae934ebb"
+      }
+   ]
+}

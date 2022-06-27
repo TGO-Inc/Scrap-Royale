@@ -17,8 +17,7 @@ dofile( "$SURVIVAL_DATA/Scripts/terrain/terrain_util2.lua" )
 --dofile("cell_rotation_utility.lua")
 
 g_isEditor = g_isEditor or false
-g_beachTileList = g_beachTileList or { ["InnerCorner"] = {}, ["InnerSide"] = {}, ["OuterCorner"] = {}, ["OuterSide"] = {} }
-g_desertTileList = g_desertTileList or {}
+
 ----------------------------------------------------------------------------------------------------
 -- Constants
 ----------------------------------------------------------------------------------------------------
@@ -66,11 +65,11 @@ local function getOrCreateTileId( path, temp )
 		temp.pathToUid[path] = uid
 		print( "Added tile "..path..": {"..tostring(uid).."}" )
 	end
+	
 	return temp.pathToUid[path]
 end
 
 local function setCell(cell, uid )
-	--print(g_cellData)
 	g_cellData.uid[cell.y][cell.x] = uid
 	g_cellData.xOffset[cell.y][cell.x] = cell.offsetX
 	g_cellData.yOffset[cell.y][cell.x] = cell.offsetY
@@ -99,40 +98,6 @@ end
 function Init()
 	print( "Initializing custom terrain" )
 	
-g_beachTileList["OuterCorner"][#g_beachTileList["OuterCorner"] + 1] =  "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0001)_01.tile"
-	g_beachTileList["OuterCorner"][#g_beachTileList["OuterCorner"] + 1] =  "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0001)_02.tile"
-	g_beachTileList["OuterCorner"][#g_beachTileList["OuterCorner"] + 1] =  "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0001)_03.tile"
-	g_beachTileList["OuterCorner"][#g_beachTileList["OuterCorner"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0001)_04.tile"
-	g_beachTileList["OuterCorner"][#g_beachTileList["OuterCorner"] + 1] =  "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0001)_05.tile"
-	g_beachTileList["OuterCorner"][#g_beachTileList["OuterCorner"] + 1] = "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0001)_06.tile"
-	g_beachTileList["OuterCorner"][#g_beachTileList["OuterCorner"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0001)_07.tile"
-	g_beachTileList["OuterCorner"][#g_beachTileList["OuterCorner"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0001)_08.tile"
-	g_beachTileList["OuterCorner"][#g_beachTileList["OuterCorner"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0001)_09.tile"
-	g_beachTileList["OuterCorner"][#g_beachTileList["OuterCorner"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0001)_10.tile"
-	g_beachTileList["OuterCorner"][#g_beachTileList["OuterCorner"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0001)_11.tile"
-	-- Not used: $SURVIVAL_DATA/Terrain/Tiles/lake/Lake(0011)_14.tile
-	-- Sides, desert
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_01.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_02.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_03.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_04.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_05.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_06.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_07.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_08.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_09.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_10.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_11.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_12.tile"
-	g_beachTileList["OuterSide"][#g_beachTileList["OuterSide"] + 1] =   "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_13.tile"
-	-- Not used: $GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DesertLake(0011)_14.tile
-
-	g_desertTileList[#g_desertTileList + 1] = "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DESERT64_01.tile" 
-	g_desertTileList[#g_desertTileList + 1] = "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DESERT64_02.tile" 
-	g_desertTileList[#g_desertTileList + 1] = "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DESERT64_03.tile" 
-	g_desertTileList[#g_desertTileList + 1] = "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DESERT64_04.tile" 
-	g_desertTileList[#g_desertTileList + 1] = "$GAME_DATA/Terrain/Tiles/CreativeTiles/Auto/DESERT64_05.tile" 
-
 	initForestTiles()
 	initDesertTiles()
 	initMeadowTiles()
@@ -145,7 +110,7 @@ end
 
 ----------------------------------------------------------------------------------------------------
 
-local function initializeCellData( xMin, xMax, yMin, yMax, seed )
+local function initializeCellData( )
 	-- Version history:
 	-- 2:	Changes integer 'tileId' to 'uid' from tile uuid
 	--		Renamed 'tileOffsetX' -> 'xOffset'
@@ -154,8 +119,8 @@ local function initializeCellData( xMin, xMax, yMin, yMax, seed )
 	--		TODO: Implement upgrade
 
 	g_cellData = {
-		bounds = { xMin = xMin, xMax = xMax, yMin = yMin, yMax = yMax },
-		seed = seed,
+		bounds = { xMin = -128, xMax = 127, yMin = -128, yMax = 127 },
+		seed = 0,
 		-- Per Cell
 		uid = {},
 		xOffset = {},
@@ -167,13 +132,13 @@ local function initializeCellData( xMin, xMax, yMin, yMax, seed )
 	}
 
 	-- Cells
-	for cellY = yMin, yMax do
+	for cellY = -128, 127 do
 		g_cellData.uid[cellY] = {}
 		g_cellData.xOffset[cellY] = {}
 		g_cellData.yOffset[cellY] = {}
 		g_cellData.rotation[cellY] = {}
 
-		for cellX = xMin, xMax do
+		for cellX = -128, 127 do
 			g_cellData.uid[cellY][cellX] = sm.uuid.getNil()
 			g_cellData.xOffset[cellY][cellX] = 0
 			g_cellData.yOffset[cellY][cellX] = 0
@@ -181,72 +146,13 @@ local function initializeCellData( xMin, xMax, yMin, yMax, seed )
 		end
 	end
 
-	for cornerY = yMin, yMax+1 do
+	for cornerY = -128, 127+1 do
 		g_cellData.corners[cornerY] = {}
-		for cornerX = xMin, xMax+1 do
+		for cornerX = -128, 127+1 do
 			g_cellData.corners[cornerY][cornerX] = 0
 		end
 	end
 end
-
-function getDeslandTile( x, y, z, seed, outer )
-	local direction = ""
-	local rotation = 0
-	direction = direction..z
-
-	local tileList
-			if direction == "N" then
-				rotation = 2
-			elseif direction == "E" then
-				rotation = 1
-			elseif direction == "S" then
-				rotation = 0
-			elseif direction == "W" then
-				rotation = 3
-			end
-
-	local cellData = { x = x, y = y, offsetX = 0, offsetY = 0, rotation = 0}
-	local tile =  g_desertTileList[1 + sm.noise.intNoise2d( x, y, seed ) % #g_desertTileList]
-	setCell( cellData, getOrCreateTileId( tile, outer ) )
-
-end
-
-function getDesTile( x, y, z, seed, outer )
-	local direction = ""
-	local rotation = 0
-	direction = direction..z
-
-	local tileList
-	if direction == "NW" or direction == "NE" or direction == "SE" or direction == "SW" then
-			tileList = "OuterCorner"
-			if direction == "NW" then
-				rotation = 3
-			elseif direction == "NE" then
-				rotation = 2
-			elseif direction == "SE" then
-				rotation = 1
-			elseif direction == "SW" then
-				rotation = 0
-			end
-	else
-			tileList = "OuterSide"
-			if direction == "N" then
-				rotation = 2
-			elseif direction == "E" then
-				rotation = 1
-			elseif direction == "S" then
-				rotation = 0
-			elseif direction == "W" then
-				rotation = 3
-			end
-	end
-
-	local cellData = { x = x, y = y, offsetX = 0, offsetY = 0, rotation = rotation }
-	local tile = g_beachTileList[tileList][1 + sm.noise.intNoise2d( x, y, seed ) % #g_beachTileList[tileList]]
-	setCell( cellData, getOrCreateTileId( tile, outer ) )
-
-end
-
 
 function Create( xMin, xMax, yMin, yMax, seed, data )
 	
@@ -255,58 +161,20 @@ function Create( xMin, xMax, yMin, yMax, seed, data )
 
 	-- if data worldfile we are in game
 	if data.worldFile then
-		sm.log.info("Generating New Terrain...")
 		g_isEditor = false
 		print( "Creating custom terrain: " .. data.worldFile )
 		jWorld = sm.json.open( data.worldFile )
-		
-		print( "Bounds X: ["..xMin..", "..xMax.."], Y: ["..yMin..", "..yMax.."]" )
-		print( "Seed: "..seed )
 
-		-- v0.5.0: graphicsCellPadding is no longer included in min/max
-		xMin =  xMin - GRAPHICS_CELL_PADDING
-		xMax =  xMax + GRAPHICS_CELL_PADDING
-		yMin =  yMin - GRAPHICS_CELL_PADDING
-		yMax =  yMax + GRAPHICS_CELL_PADDING
-		
-		initializeCellData( xMin, xMax, yMin, yMax, seed )
+		print( "Bounds X: ["..xMin..", "..xMax.."], Y: ["..yMin..", "..yMax.."]" )
+
+		initializeCellData( )
 		LoadTerrain( jWorld )
-		updateDesertFade( 
-			g_cellData.bounds.xMin + (GRAPHICS_CELL_PADDING-1), 
-			g_cellData.bounds.xMax - (GRAPHICS_CELL_PADDING-1) )
-		
-		for i = FENCE_MIN_CELL + 1, FENCE_MAX_CELL - 1 do
-			setFence( i, FENCE_MIN_CELL, "S", seed, temp )
-			setFence( i, FENCE_MAX_CELL, "N", seed, temp )
-			setFence( FENCE_MIN_CELL, i, "W", seed, temp )
-			setFence( FENCE_MAX_CELL, i, "E", seed, temp )	
-			getDesTile( i, FENCE_MIN_CELL+1, "S", seed, temp )
-			getDesTile( i, FENCE_MAX_CELL-1, "N", seed, temp )
-			getDesTile( FENCE_MIN_CELL+1, i, "W", seed, temp )
-			getDesTile( FENCE_MAX_CELL-1, i, "E", seed, temp )	
-		end
-		setFence( FENCE_MIN_CELL, FENCE_MIN_CELL, "SW", seed, temp )
-		setFence( FENCE_MAX_CELL, FENCE_MIN_CELL, "SE", seed, temp )
-		setFence( FENCE_MIN_CELL, FENCE_MAX_CELL, "NW", seed, temp )
-		setFence( FENCE_MAX_CELL, FENCE_MAX_CELL, "NE", seed, temp )
-		getDesTile( FENCE_MIN_CELL+1, FENCE_MIN_CELL+1, "SW", seed, temp )
-		getDesTile( FENCE_MAX_CELL-1, FENCE_MIN_CELL+1, "SE", seed, temp )
-		getDesTile( FENCE_MIN_CELL+1, FENCE_MAX_CELL-1, "NW", seed, temp )
-		getDesTile( FENCE_MAX_CELL-1, FENCE_MAX_CELL-1, "NE", seed, temp )
+
 		for path, uid in pairs( temp.pathToUid ) do
 			f_uidToPath[tostring(uid)] = path
 		end
 		
 		sm.terrainData.save( { f_uidToPath, g_cellData } )
-	else -- we are coming from the editor and data will be loaded later
-		g_isEditor = true
-		print("Create custom terrain for Editor")
-		xMin =  xMin - GRAPHICS_CELL_PADDING
-		xMax =  xMax + GRAPHICS_CELL_PADDING
-		yMin =  yMin - GRAPHICS_CELL_PADDING
-		yMax =  yMax + GRAPHICS_CELL_PADDING
-		initializeCellData( xMin, xMax, yMin, yMax, seed )
-		updateDesertFade( g_cellData.bounds.xMin +5 , g_cellData.bounds.xMax - 5  )
 	end
 end
 
@@ -319,9 +187,9 @@ function Load()
 		f_uidToPath = terrainData[1]
 		g_cellData = terrainData[2]
 		
-		updateDesertFade(
+		--[[updateDesertFade(
 			g_cellData.bounds.xMin + (GRAPHICS_CELL_PADDING-1) , 
-			g_cellData.bounds.xMax - (GRAPHICS_CELL_PADDING-1) )
+			g_cellData.bounds.xMax - (GRAPHICS_CELL_PADDING-1) )]]
 		return true
 	end
 
@@ -356,8 +224,6 @@ function LoadTerrain( terrainData )
 	local terrainTileList = { pathToUid = {}, nextLegacyId = 1 }
 
 	if terrainData.cornerData then
-		terrainData.corners = {}
-
 		for i = 1, #terrainData.cornerData do
 			local cd = terrainData.cornerData[i]
 			local x = cd["x"]

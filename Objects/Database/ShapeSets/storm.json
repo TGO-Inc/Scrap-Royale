@@ -1,0 +1,17 @@
+{
+   "partList" : [
+      {
+         "box" : {
+            "x" : 1,
+            "y" : 1,
+            "z" : 1
+         },
+         "name" : "Storm_FBX",
+         "physicsMaterial" : "Glass",
+         "ratings" : {},
+         "renderable" : "$CONTENT_DATA/Effects/Renderables/storm_rend.json",
+         "rotationSet" : "Default",
+         "uuid" : "72de823d-2273-45ed-bb80-3dae7ee8ef2f"
+      }
+   ]
+}
